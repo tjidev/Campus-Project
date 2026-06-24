@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Eye | Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar__logo"><i class="fa-solid fa-map-location-dot"></i>Campus Eye</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/about.html" class="navbar__links">About</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/map.html" class="navbar__links">Map</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="/login.html" class="button">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <div class="login">
+        <div class="login__container">
+
+            <div class="login__header">
+                <h1>Welcome Back</h1>
+            </div>
+            <div class="login__tabs" role="tablist" aria-label="Login type">
+                <button class="login__tab active" id="tab-student" role="tab" aria-selected="true" aria-controls="panel-student" onclick="switchRole('student')">
+                    <i class="fa-solid fa-user-graduate"></i> Student
+                </button>
+                <button class="login__tab" id="tab-admin" role="tab" aria-selected="false" aria-controls="panel-admin" onclick="switchRole('admin')">
+                    <i class="fa-solid fa-user-shield"></i> Admin
+                </button>
+            </div>
+
+            <!-- Student Login -->
+            <div class="login__panel active" id="panel-student" role="tabpanel" aria-labelledby="tab-student">
+                <form onsubmit="handleLogin(event, 'student')">
+                    <div class="login__group">
+                        <label for="student-id">Student ID</label>
+                        <input type="text" id="student-id" placeholder="e.g. STU20231045" required>
+                    </div>
+                    <div class="login__group">
+                        <label for="student-password">Password</label>
+                        <input type="password" id="student-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="login__btn">Login in as Student</button>
+                </form>
+            </div>
+
+            <!-- Admin Login -->
+            <div class="login__panel" id="panel-admin" role="tabpanel" aria-labelledby="tab-admin">
+                <form onsubmit="handleLogin(event, 'admin')">
+                    <div class="login__group">
+                        <label for="admin-email">Admin Email</label>
+                        <input type="email" id="admin-email" placeholder="admin@campuseye.edu" required>
+                    </div>
+                    <div class="login__group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="login__btn">Login in as Admin</button>
+                </form>
+            </div>
+
+            <div class="login__footer">
+                Don't have an account? <a href="/signup.html">Sign up</a>
+            </div>
+
+        </div>
+    </div>
+    <script src = 'app.js'></script>
+</body>
+</html>
